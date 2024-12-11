@@ -1,0 +1,55 @@
+/* html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 5px;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100% -  2 * 60px); /*Adjust the 60px if your header and footer sizes change
+} */
+
+/* .column{
+    padding: 20px;
+}
+
+.menu{
+    flex: 1;
+    background-color: aliceblue;
+}
+
+.content{
+    flex: 5;
+}
+
+ */
+
+footer{
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 25px;
+    position: absolute;
+    bottom: 50;
+    width: 100%;
+}
+
+/* @media screen and (max-width:600px){
+    .menu, .content{
+        flex: 100%;
+    }
+    /**.menu{
+        display: none;
+    }**/
+    /* normal style */
+    /* .space_box{
+        padding: 50px;
+    }
+} */

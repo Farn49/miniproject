@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: miniproject
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./php/src:/var/www/html/
+    ports:
+      - "8080:80"
+
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD  # กำหนดรหัสผ่าน root จริง
+      MYSQL_DATABASE: db-miniproject                  # กำหนดชื่อฐานข้อมูล
+      MYSQL_USER: MYSQL_USER                    # กำหนดชื่อผู้ใช้
+      MYSQL_PASSWORD: MYSQL_PASSWORD            # กำหนดรหัสผ่านผู้ใช้
+    ports:
+      - "9906:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8000:80"  # แก้ไขให้ถูกต้อง
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
